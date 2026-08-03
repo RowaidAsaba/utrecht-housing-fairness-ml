@@ -1,0 +1,58 @@
+# README.md: Predicting Utrecht Housing Prices
+
+## Project Title
+Predicting Utrecht Housing Prices: A Comprehensive Data Analysis and Machine Learning Approach
+
+## Candidate
+Rowaid Asaba
+
+## Overview
+This project presents a robust predictive model for housing prices in Utrecht, developed as part of the Data Analysis course at Maastricht University. It demonstrates a complete data science lifecycle, encompassing data cleaning, exploratory data analysis (EDA), advanced feature engineering, model selection, and rigorous evaluation. Beyond predictive accuracy, a significant focus was placed on model interpretability and fairness analysis, examining how prediction errors are distributed across various geographical segments.
+
+## Project Goals
+- Develop an accurate and reliable machine learning model to predict residential property values in Utrecht.
+- Showcase proficiency in modern data analysis techniques, including data preprocessing, feature engineering, and model training with `scikit-learn`.
+- Analyze model interpretability using feature importance techniques (perturbation tests).
+- Assess model fairness by evaluating prediction errors across different geographical areas (zipcodes and custom spatial neighborhoods).
+- Provide clear, business-oriented insights into the factors influencing housing prices and the implications of modeling decisions.
+
+## Key Features and Techniques Used
+- **Data Cleaning & Preprocessing:** Handling outliers and ensuring data quality.
+- **Exploratory Data Analysis (EDA):** Visualizing key relationships between features and the target variable (`retailvalue`).
+- **Advanced Feature Engineering:**
+    - Creation of `house_age` and `total_outdoor` features.
+    - Polynomial features (e.g., `house_area_sq`) to capture non-linear relationships.
+    - Interaction features (e.g., `area_x_outdoor`) to model synergistic effects.
+    - Data-driven `spatial_neighborhood` clusters using K-Means for finer-grained location insights.
+    - One-hot encoding of categorical features (`zipcode`, `spatial_neighborhood`).
+- **Modeling:**
+    - Linear Regression as a baseline.
+    - Regularized models: Lasso Regression for feature selection and Ridge Regression (`RidgeCV`) for robust performance with correlated features.
+    - Cross-validation for hyperparameter tuning and robust model evaluation.
+- **Model Evaluation:** Root Mean Squared Error (RMSE) as the primary performance metric.
+- **Model Interpretability:** Perturbation (permutation) tests to quantify feature importance.
+- **Fairness Analysis:** Group-wise error analysis across zipcodes and spatial neighborhoods to identify systematic biases.
+
+## Project Achievements
+- **Significant RMSE Reduction:** The final Ridge Regression model achieved a Test RMSE of **17,352**, representing a reduction of over **50%** compared to the initial baseline model (RMSE ~37,337).
+- **Robust and Generalizable Model:** The minimal gap between Training RMSE (16,742) and Test RMSE (17,352) indicates excellent generalization and no overfitting.
+- **Actionable Insights:** Identified `taxvalue`, `house-area`, and `area_x_outdoor` as the most influential predictors, providing clear insights into market drivers.
+- **Ethical Consideration:** Comprehensive fairness analysis highlighted geographical areas of potential systematic over- or undervaluation, paving the way for more equitable model development.
+
+## Instructor Review
+This project was reviewed by the course instructor and received a score of **9.1 out of 10**, acknowledging its analytical depth, methodological rigor, and clear communication.
+
+## How to Run the Notebook
+1.  **Clone the Repository:** Download this repository to your local machine or Google Drive.
+2.  **Open in Google Colab:** Upload the `.ipynb` file to Google Colab.
+3.  **Mount Google Drive (if applicable):** If the dataset is stored in Google Drive, ensure it is mounted (code for this is already included in the notebook).
+4.  **Install Dependencies:** All necessary libraries (`numpy`, `pandas`, `matplotlib`, `seaborn`, `sklearn`) are standard in Colab or explicitly imported.
+5.  **Execute Cells:** Run all cells sequentially from top to bottom. The notebook is designed to be self-contained and reproducible.
+
+## Dataset
+The dataset `utrechthousing.csv` contains several hundred residential properties in Utrecht with structural, spatial, and energy-related features. A detailed `codebook.txt` is available for variable descriptions.
+
+## Future Work
+- Explore more advanced non-linear models (e.g., Gradient Boosting, Random Forests) to potentially further reduce RMSE.
+- Integrate external economic indicators (e.g., interest rates, inflation) into the model.
+- Conduct more in-depth causal inference to understand the true impact of specific features on housing prices and model fairness. 
